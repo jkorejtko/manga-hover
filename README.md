@@ -1,25 +1,34 @@
 # Manga Hover
 
-Rozšíření pro desktopový Google Chrome 138 a novější s dostupným vestavěným překladačem angličtiny do češtiny.
+Unpacked extension for desktop Google Chrome 138+ that translates English manga, comics, and page text into Czech on hover using local OCR and Chrome's built-in Translator API.
 
-## Instalace
+> Not published on the Chrome Web Store — install locally from this repository.
 
-1. Rozbal ZIP.
-2. V adresním řádku Chrome otevři `chrome://extensions`.
-3. Zapni **Režim pro vývojáře** a klikni na **Načíst rozbalené**.
-4. Vyber složku `manga-hover`, ve které najdeš soubor `manifest.json`.
-5. Ve webové čtečce otevři z nabídky rozšíření **Manga Hover** a klikni na **Zapnout na této kartě**. Při prvním zapnutí nech okno otevřené, dokud Chrome nestáhne jazykový balíček.
+## Installation
 
-## Použití
+1. Clone this repository (`git clone https://github.com/jkorejtko/manga-hover.git`) or download and extract the ZIP from GitHub.
+2. Open `chrome://extensions` in Google Chrome.
+3. Enable **Developer mode** and click **Load unpacked**.
+4. Select the `manga-hover` folder (containing `manifest.json`).
+5. Open a manga reader tab, click **Manga Hover** in the extensions menu, and click **Zapnout na této kartě** (*Enable on this tab*). On first use, keep the popup open until Chrome finishes downloading the English-to-Czech language pack.
 
-- Podrž kurzor na anglické bublině. Při prvním najetí v dané části stránky rozšíření přečte text z obrázku a zobrazí český překlad u kurzoru. Pod překladem uvidíš anglický text, který OCR z obrázku přečetlo.
-- Pokud OCR spojí sousední bubliny nebo text mine, podrž **Alt** (**⌥ Option** na Macu) a myší orámuj jednu bublinu. Ruční výsledek zavřeš klávesou **Esc** nebo kliknutím mimo něj.
-- Rozšíření umí přeložit také běžné anglické odstavce a nadpisy. Po přechodu na novou stránku ho znovu zapni. Ve čtečkách, které mění kapitoly bez načtení nové stránky, může zůstat zapnuté.
+## Usage
 
-Rozšíření čte pouze viditelnou část aktivní karty. Text z obrázků rozpoznává lokálně pomocí přibaleného Tesseractu a překlad zajišťuje Chrome na zařízení. Kvalita rozpoznání záleží na velikosti a čitelnosti písma. U malých bublin může pomoci přiblížení v prohlížeči.
+- **Hover over a speech bubble:** On the first hover in the current viewport, the extension runs OCR on the visible image and shows the Czech translation next to the cursor, with the recognized English source text underneath.
+- **Manual area selection:** If OCR merges neighboring bubbles or misses text, hold **Alt** (**⌥ Option** on macOS) and drag a box around a single bubble. Dismiss a manual selection with **Esc**, scrolling, or clicking outside.
+- **Plain page text:** Hovering over regular English paragraphs, headings, blockquotes, or captions translates them as well.
+- **Navigation:** Re-enable the extension after a full page load. In single-page readers that switch chapters without reloading, it stays active.
 
-## Zdroje
+## Privacy & Notes
 
-- [Vestavěný překladač Chrome](https://developer.chrome.com/docs/ai/translator-api)
+Everything runs locally on your device: only the visible part of the active tab is captured, image text is recognized in an offscreen worker via bundled Tesseract.js, and translation uses Chrome's on-device model. OCR accuracy depends on font size and clarity — zooming in helps with small speech bubbles.
+
+## Credits & Licenses
+
+- [Chrome Translator API](https://developer.chrome.com/docs/ai/translator-api)
 - [Tesseract.js 6.0.1](https://github.com/naptha/tesseract.js/tree/v6.0.1)
-- Licence přibalených komponent jsou ve složce `vendor`.
+- Third-party licenses for bundled assets are located in the `vendor/` directory.
+
+## TODO
+
+- [ ] Publish on the Chrome Web Store
