@@ -1,0 +1,11 @@
+{
+  "manifest_version": 3,
+  "name": "Manga Hover",
+  "version": "1.1.2",
+  "description": "Hover over manga, comics, or images to translate English text into Czech.",
+  "minimum_chrome_version": "138",
+  "permissions": ["activeTab", "scripting", "offscreen"],
+  "action": { "default_popup": "popup.html", "default_title": "Manga Hover" },
+  "background": { "service_worker": "background.js" },
+  "content_security_policy": { "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'" }
+}

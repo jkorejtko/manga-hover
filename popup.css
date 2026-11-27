@@ -1,0 +1,9 @@
+:root { color-scheme: dark; font: 14px/1.5 system-ui, sans-serif; }
+body { margin: 0; width: 290px; background: #181923; color: #f5f4ff; }
+main { padding: 18px; }
+h1 { font-size: 18px; margin: 0; }
+p { margin: 10px 0 14px; color: #cbc9dc; }
+button { font: inherit; font-weight: 650; width: 100%; padding: 8px 10px; border: 0; border-radius: 8px; background: #c2b5ff; color: #181332; cursor: pointer; }
+button:disabled { opacity: .55; cursor: default; }
+#status { margin-bottom: 0; }
+#status:empty { display: none; }
